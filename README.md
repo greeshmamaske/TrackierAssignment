@@ -61,7 +61,7 @@ The app will be available at: `http://localhost:8080`
 
 ### Register a New User
 ```http
-POST /register
+POST /users/register
 Content-Type: application/json
 
 {
@@ -72,7 +72,7 @@ Content-Type: application/json
 
 ### Login to Get Token
 ```http
-POST /login
+POST /users/login
 Content-Type: application/json
 
 {
