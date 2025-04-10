@@ -7,15 +7,24 @@
 	},
 	"item": [
 		{
-			"name": "Register user",
+			"name": "Register user (All)",
 			"request": {
 				"auth": {
 					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"testadmin\",\r\n  \"password\": \"test123\",\r\n  \"role\": \"ROLE_ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:8080/users/register?username=johndoe&password=secret",
+					"raw": "http://localhost:8080/users/register",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -24,35 +33,20 @@
 					"path": [
 						"users",
 						"register"
-					],
-					"query": [
-						{
-							"key": "username",
-							"value": "johndoe"
-						},
-						{
-							"key": "password",
-							"value": "secret"
-						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Add book",
+			"name": "Add book (Admin)",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "johndoe",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc0NDI2Nzc0MSwiZXhwIjoxNzQ0MjcxMzQxfQ.EE6gXQknaCXz7aI0qSUUlOlBI1E_1gGC468RaRbWkzY",
 							"type": "string"
 						}
 					]
@@ -83,19 +77,14 @@
 			"response": []
 		},
 		{
-			"name": "Get all books",
+			"name": "Get all books (All)",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "johndoe",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc0NDI2NzA5NywiZXhwIjoxNzQ0MjcwNjk3fQ.aEUN7jSLRAgaz1YLNe1yy4ojG1xR1Gq6ouj6JQaele4",
 							"type": "string"
 						}
 					]
@@ -158,14 +147,15 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/books?page=0&size=12",
+					"raw": "http://localhost:8080/transactions/search?page=0&size=12",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"books"
+						"transactions",
+						"search"
 					],
 					"query": [
 						{
@@ -182,19 +172,14 @@
 			"response": []
 		},
 		{
-			"name": "Search by title",
+			"name": "Search by title (All)",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "johndoe",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc0NDI2Nzc0MSwiZXhwIjoxNzQ0MjcxMzQxfQ.EE6gXQknaCXz7aI0qSUUlOlBI1E_1gGC468RaRbWkzY",
 							"type": "string"
 						}
 					]
@@ -202,14 +187,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/books/search/title/Gatsby?page=0&size=10",
+					"raw": "http://localhost:8080/transactions/search/title/Gatsby?page=0&size=10",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"books",
+						"transactions",
 						"search",
 						"title",
 						"Gatsby"
@@ -229,19 +214,14 @@
 			"response": []
 		},
 		{
-			"name": "Search by author",
+			"name": "Search by author (All)",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "johndoe",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc0NDI2Nzc0MSwiZXhwIjoxNzQ0MjcxMzQxfQ.EE6gXQknaCXz7aI0qSUUlOlBI1E_1gGC468RaRbWkzY",
 							"type": "string"
 						}
 					]
@@ -249,14 +229,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/books/search/author/Fitzgerald?page=0&size=12",
+					"raw": "http://localhost:8080/transactions/search/author/Fitzgerald?page=0&size=12",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"books",
+						"transactions",
 						"search",
 						"author",
 						"Fitzgerald"
@@ -276,19 +256,14 @@
 			"response": []
 		},
 		{
-			"name": "Update book",
+			"name": "Update book (Admin)",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "johndoe",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJpYXQiOjE3NDQyNjc0MDYsImV4cCI6MTc0NDI3MTAwNn0.LjE5xHGeFo2BdD6ud2iDyTk8zPIniRlSoCUeAc1WDpo",
 							"type": "string"
 						}
 					]
@@ -320,19 +295,14 @@
 			"response": []
 		},
 		{
-			"name": "Delete book",
+			"name": "Delete book (Admin)",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "johndoe",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJpYXQiOjE3NDQyNjc0MDYsImV4cCI6MTc0NDI3MTAwNn0.LjE5xHGeFo2BdD6ud2iDyTk8zPIniRlSoCUeAc1WDpo",
 							"type": "string"
 						}
 					]
@@ -340,7 +310,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/books/5",
+					"raw": "http://localhost:8080/books/3",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -348,26 +318,21 @@
 					"port": "8080",
 					"path": [
 						"books",
-						"5"
+						"3"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Borrow book",
+			"name": "Borrow book (All)",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "johndoe",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0YWRtaW4iLCJpYXQiOjE3NDQyNjc0MDYsImV4cCI6MTc0NDI3MTAwNn0.LjE5xHGeFo2BdD6ud2iDyTk8zPIniRlSoCUeAc1WDpo",
 							"type": "string"
 						}
 					]
@@ -384,7 +349,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/transactions/borrow/1",
+					"raw": "http://localhost:8080/transactions/borrow",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -392,27 +357,21 @@
 					"port": "8080",
 					"path": [
 						"transactions",
-						"borrow",
-						"1"
+						"borrow"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Return book",
+			"name": "Return book  (All)",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "username",
-							"value": "johndoe",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "secret",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huZG9lIiwiaWF0IjoxNzQ0MjY4Nzk2LCJleHAiOjE3NDQyNzIzOTZ9.jW8XQDtFBx0WyJifyBH-Vh8NQS2WnftiCxDFrNsmBkg",
 							"type": "string"
 						}
 					]
@@ -421,7 +380,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "[12]",
+					"raw": "[2]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -429,7 +388,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/transactions/return/2",
+					"raw": "http://localhost:8080/transactions/return",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -437,8 +396,117 @@
 					"port": "8080",
 					"path": [
 						"transactions",
-						"return",
-						"2"
+						"return"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user (All)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"testuser\",\r\n  \"password\": \"test123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Encrypt notes (All)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc0NDI2NzA5NywiZXhwIjoxNzQ0MjcwNjk3fQ.aEUN7jSLRAgaz1YLNe1yy4ojG1xR1Gq6ouj6JQaele4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"text\": \"my secret note\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/notes/encrypt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notes",
+						"encrypt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decrypt notes (All)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0dXNlciIsImlhdCI6MTc0NDI2NzA5NywiZXhwIjoxNzQ0MjcwNjk3fQ.aEUN7jSLRAgaz1YLNe1yy4ojG1xR1Gq6ouj6JQaele4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"vduQZ2wtIjDB5vrncU/FEg==\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/notes/decrypt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notes",
+						"decrypt"
 					]
 				}
 			},
